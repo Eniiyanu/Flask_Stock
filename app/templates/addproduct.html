@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sign</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link href="{{ url_for("static", filename="css/boot.css")}}" rel="stylesheet">
+
+    <link href="{{ url_for("static", filename="fontawesome/fontawesome/css/all.css")}}" rel="stylesheet">
+    <script src="{{ url_for("static", filename="fontawesome/fontawesome/js/all.js")}}"></script>
+    <script src="{{ url_for("static", filename="js/popper.js")}}"></script>
+    <script src="{{ url_for("static", filename="js/boots.js")}}"></script>
+    <style>
+        body {
+            color: #999;
+            background: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-control,
+        .form-control:focus,
+        .input-group-addon {
+            border-color: #e1e1e1;
+            border-radius: 0;
+        }
+
+        .signup-form {
+            width: 600px;
+            padding-top: 40px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .signup-form h2 {
+            color: #636363;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+
+        .signup-form .lead {
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .signup-form form {
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background: #fff;
+            border: 1px solid #f3f3f3;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        .signup-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .signup-form label {
+            font-weight: normal;
+            font-size: 13px;
+        }
+
+        .signup-form .form-control {
+            min-height: 38px;
+            box-shadow: none !important;
+            border-width: 0 0 1px 0;
+        }
+
+        .signup-form .input-group-addon {
+            max-width: 100px;
+            text-align: center;
+            background: none;
+            border-bottom: 1px solid #e1e1e1;
+            padding-left: 5px;
+        }
+
+        .signup-form .btn,
+        .signup-form .btn:active {
+            font-size: 16px;
+            font-weight: bold;
+            background: #33af10 !important;
+            border-radius: 3px;
+            border: none;
+            min-width: 140px;
+        }
+
+        .signup-form .btn:hover,
+        .signup-form .btn:focus {
+            background: #33af10 !important;
+        }
+
+        .signup-form a {
+            color: #33af10;
+            text-decoration: none;
+        }
+
+        .signup-form a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-form .fa {
+            font-size: 21px;
+            position: relative;
+            top: 8px;
+        }
+
+        .signup-form .fa-paper-plane {
+            font-size: 17px;
+        }
+
+        .signup-form .fa-check {
+            color: #fff;
+            left: 9px;
+            top: 18px;
+            font-size: 7px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body><nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Stock</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end ml-auto" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-2">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/my-profile">Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Products
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="">Add Products</a>
+                    <a class="dropdown-item" href="#">View Products</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+    <div class="signup-form">
+        <form action="http://127.0.0.1:5000/add_products" method="POST" enctype="multipart/form-data"
+            <!-- Error message block -->
+
+            <div class="main">
+                <div style="color: red;margin: 5px; text-align: center">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages%}
+                    {% for message in messages%}
+                    <b>{{message}}</b>
+                    {% endfor%}
+                    {% endif%}
+                    {% endwith%}
+
+                </div>
+                <h1 style="text-align: center"> Blog </h1>
+                <h2 style="color: #33af10"> <i class="fa fa-gift"></i> Add Product</h2>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Title</span>
+                        <input name="title" type="text" class="form-control" name="title" placeholder="Title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"> Subtitle</span>
+                        <input name="price" type="" class="form-control" name="price" placeholder="Price">
+                    </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Name</span>
+                                <input name="compare_price" type="" class="form-control" name="compare_price" placeholder="Compare Price">
+                            </div> 
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Post Details</span>
+                                <textarea name="description"  class="form-control" placeholder="description" rows="3"></textarea>
+                               
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Category</span>
+                            <input name="category" type="" class="form-control" name="category" placeholder="Category" >
+                    </div>
+                   
+                    <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Picture</span>
+                                <input name="file" type="file" class="form-control" name="file" placeholder="Pictures" >
+                                    </div>
+                    </div> 
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">Click to Post</button>
+                    </div>
+
+                   
+   
+
+</body>
+
+</html>

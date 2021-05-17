@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Sign</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link href="{{ url_for("static", filename="css/boot.css")}}"  rel="stylesheet">
+<link href="{{ url_for("static", filename="fontawesome/fontawesome/css/all.css")}}"  rel="stylesheet">
+<script src="{{ url_for("static", filename="fontawesome/fontawesome/js/all.js")}}"></script>
+<script src="{{ url_for("static", filename="js/popper.js")}}"></script>
+<script src="{{ url_for("static", filename="js/boots.js")}}"></script>
+<style>
+body {
+	color: #999;
+	background: #f5f5f5;
+	font-family: 'Roboto', sans-serif;
+}
+.form-control, .form-control:focus, .input-group-addon {
+	border-color: #e1e1e1;
+	border-radius: 0;
+}
+.signup-form {
+	width: 390px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+.signup-form h2 {
+	color: #636363;
+	margin: 0 0 15px;
+	text-align: center;
+}
+.signup-form .lead {
+	font-size: 14px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.signup-form form {		
+	border-radius: 10px;
+	margin-bottom: 15px;
+	background: #fff;
+	border: 1px solid #f3f3f3;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+}
+.signup-form .form-group {
+	margin-bottom: 20px;
+}
+.signup-form label {
+	font-weight: normal;
+	font-size: 13px;
+}
+.signup-form .form-control {
+	min-height: 38px;
+	box-shadow: none !important;
+	border-width: 0 0 1px 0;
+}	
+.signup-form .input-group-addon {
+	max-width: 42px;
+	text-align: center;
+	background: none;
+	border-bottom: 1px solid #e1e1e1;
+	padding-left: 5px;
+}
+.signup-form .btn, .signup-form .btn:active {        
+	font-size: 16px;
+	font-weight: bold;
+	background: #33af10 !important;
+	border-radius: 3px;
+	border: none;
+	min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus {
+	background: #33af10 !important;
+}
+.signup-form a {
+	color: #33af10;
+	text-decoration: none;
+}	
+.signup-form a:hover {
+	text-decoration: underline;
+}
+.signup-form .fa {
+	font-size: 21px;
+	position: relative;
+	top: 8px;
+}
+.signup-form .fa-paper-plane {
+	font-size: 17px;
+}
+.signup-form .fa-check {
+	color: #fff;
+	left: 9px;
+	top: 18px;
+	font-size: 7px;
+	position: absolute;
+}
+</style>
+</head>
+<body>
+	
+<div class="signup-form">	
+	<form action="http://127.0.0.1:5000/sign-up" method="POST">
+		<!-- Error message block -->
+   
+		<div class="main">
+				<div style="color: red;margin: 5px; text-align: center">
+					{% with messages = get_flashed_messages() %}
+					{% if messages%}
+					{% for message in messages%}
+					<b>{{message}}</b>
+					{% endfor%}
+					{% endif%}
+					{% endwith%}
+					
+					  </div>
+			 <h1 style="text-align: center">  Stock App</h1>
+		<h2 style="color: #33af10"> <i class="fa fa-gift"></i> Create Account</h2>
+		<p class="lead">It's free and hardly takes more than 30 seconds.</p>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<input name="name" type="text" class="form-control" name="name" placeholder="Name" >
+			</div>
+        </div>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+				<input name="email" type="email" class="form-control" name="email" placeholder="Email Address" >
+			</div>
+        </div>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-phone"></i></span>
+				<input name="number" maxlength="11" type="text" class="form-control" name="phone" placeholder="Enter your phone number" >
+			</div>
+        </div>
+        <div class="form-group">
+			<div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <p class="form-control" name="text" placeholder="Gender" >Gender</p>
+                <select name="gender" type='gender' class="form-control" name="gender" id="Gender">
+                    <div style="border-radius: 10px"><option value="Male">Male</option>
+						<option value="Female">Female</option></div>
+			</div>
+        </div>
+        
+              
+            </select></div>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+				<input onkeyup="check()" id="password" name="password" type="password" class="form-control" onkeyup="check();" name="password" placeholder="Password" > <span toggle="#password-field"  class="far fa-eye" id="togglePassword"></span>
+			</div>
+        </div>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-lock"></i>
+					<i class="fa fa-check"></i>
+				</span>
+				<input  id="confirm_password"  name="confirm_password" type="password" class="form-control" name="password" placeholder="Confirm Password">  <span toggle="#password-field" class="far fa-eye" id="togglePassword"></span>
+			</div>
+        </div>        
+		<div class="form-group">
+            <button type="submit"  class="btn btn-primary btn-block btn-lg">Sign Up</button>
+		</div>
+		
+		<p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+    </form>
+	<div class="text-center">Already have an account? <a href="/login">Login here</a>.</div>
+</div>
+<!-- <script>
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') == 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});</script> -->
+<script>
+function check(){
+	if (document.getElementById('password').value ==
+		document.getElementById('confirm_password').value){
+		document.getElementById('message').style.color ="green";
+		document.getElementById("message").innerHTML ="Matching";
+		} else if (document.getElementById('password').value !=
+		document.getElementById('confirm_password').value){
+			document.getElementById("message").style.color ="red";
+			document.getElementById("message").innerHTML = "Not Matching";
+		}
+}
+// document.getElementById(confirm_password).onblur=check;
+</script>
+</body>
+</html>
+
+
+
+
+

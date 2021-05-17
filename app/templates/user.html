@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/my-style.css') }}">
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+                <a class="navbar-brand" href="/">Stock</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse justify-content-end ml-auto" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-2">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/my-profile">Profile</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Products
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="">Add Products</a>
+                                <a class="dropdown-item" href="#">View Products</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+            	<!-- Error message block -->
+   
+		<div class="main">
+            <div style="color: red;margin: 5px; text-align: center; position:absolute; padding-top: 20px">
+                {% with messages = get_flashed_messages() %}
+                {% if messages%}
+                {% for message in messages%}
+                <b>{{message}}</b>
+                {% endfor%}
+                {% endif%}
+                {% endwith%}
+                
+                  </div>
+            <div class="container" style="margin-top: 60px">
+            <h3>Products</h3>
+            
+            <a class="btn btn-primary" href="/add_products">Add Product</a>
+            {%if products %}
+            <h4>Available Products</h4>
+            
+                <div class="row">
+                    {%for product in products %}
+                    <div class="col-sm-4 product">
+                        <div>
+                            <img style="height:150px" src="http://localhost:5000/uploads/{{product.pictures}}" >
+                        </div>
+                        <h4 style="margin-top: 0">{{product.title}}</h4>
+                        <h5 style="color: #48acde">&#8358;{{product.price}}</h5>
+                    </div>
+               
+                
+                {%endfor%}
+                </div>
+           
+            {%else%}
+            <p>No product available</p>
+            {%endif%}
+            </div>
+
+            
+                    <script src="{{ url_for('static', filename='js/jquery3.min.js') }}"></script>
+                    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+    <title>Oladepo OLuwaferanmi Blog Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+
+
+    <!-- Additional CSS Files -->
+    <link href="{{ url_for("static", filename="fontawesome/fontawesome/css/all.css")}}"  rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/templatemo-stand-blog.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.css') }}">
+
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>TECH Blog<em>.</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog Entries</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="post-details.html">Post Details</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    
+    <section class="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-content">
+              <div class="row">
+                <div class="col-lg-8">
+                  <span>TECH Blog </span>
+                  <h4>Thi Blog is all about Technology!</h4>
+                </div>
+                <div class="col-lg-4">
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {%if posts %}
+
+
+    {%for post in posts %}
+
+    <section class="blog-posts">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="all-blog-posts">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+                      <img style="height:250px; width:100px" src="http://localhost:5000/uploads/{{post.pictures}}"  alt="">
+                    </div>
+                    <div class="down-content">
+                      <span>{{post.title}}</span>
+                      <a href="post-details.html"><h4>{{post.subtitle}}</h4></a>
+                      <ul class="post-info">
+                        <li><a href="#">{{post.poster}}</a></li>
+                        <li><a href="#">{{post.added}}</a></li>
+                        <li><a href="#">{{post.category}}</a></li>
+                      </ul>
+                      <p>{{post.postnote}}</p>
+                      <div class="post-options">
+                        <div class="row">
+                          <div class="col-6">
+                            <ul class="post-tags">
+                              <li><i class="fa fa-tags"></i></li>
+                              <li><a href="#">Beauty</a>,</li>
+                              <li><a href="#">Nature</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-6">
+                            <ul class="post-share">
+                              <li><i class="fa fa-share-alt"></i></li>
+                              <li><a href="#">Facebook</a>,</li>
+                              <li><a href="#"> Twitter</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+                {%else%}
+                <p>No Post available Now.</p>
+                {%endif%}                
+                  <div class="main-button">
+                    <a href="blog.html">View All Posts</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="sidebar-item search">
+                    <form id="search_form" name="gs" method="GET" action="#">
+                      <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+                    </form>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="sidebar-item recent-posts">
+                    <div class="sidebar-heading">
+                      <h2>Recent Posts</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        <li><a href="post-details.html">
+                          <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
+                          <span>May 31, 2020</span>
+                        </a></li>
+                        <li><a href="post-details.html">
+                          <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
+                          <span>May 28, 2020</span>
+                        </a></li>
+                        <li><a href="post-details.html">
+                          <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
+                          <span>May 14, 2020</span>
+                        </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="sidebar-item categories">
+                    <div class="sidebar-heading">
+                      <h2>Categories</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        <li><a href="#">- Nature Lifestyle</a></li>
+                        <li><a href="#">- Awesome Layouts</a></li>
+                        <li><a href="#">- Creative Ideas</a></li>
+                        <li><a href="#">- Responsive Templates</a></li>
+                        <li><a href="#">- HTML5 / CSS3 Templates</a></li>
+                        <li><a href="#">- Creative &amp; Unique</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="sidebar-item tags">
+                    <div class="sidebar-heading">
+                      <h2>Tag Clouds</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Creative</a></li>
+                        <li><a href="#">HTML5</a></li>
+                        <li><a href="#">Inspiration</a></li>
+                        <li><a href="#">Motivation</a></li>
+                        <li><a href="#">PSD</a></li>
+                        <li><a href="#">Responsive</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="social-icons">
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Behance</a></li>
+              <li><a href="#">Linkedin</a></li>
+              <li><a href="#">Dribbble</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-12">
+            <div class="copyright-text">
+              <p>
+                    
+                 Design: <a rel="nofollow"  target="_parent">Toopland Technologies</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+
+    <script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/owl.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/slick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/isotope.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/accordions.js') }}"></script>
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>

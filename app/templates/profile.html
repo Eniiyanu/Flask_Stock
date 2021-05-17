@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/my-style.css') }}">
+    <link href="{{ url_for("static", filename="fontawesome/fontawesome/css/all.css")}}"  rel="stylesheet">
+<script src="{{ url_for("static", filename="fontawesome/fontawesome/js/all.js")}}"></script>
+<script src="{{ url_for("static", filename="js/popper.js")}}"></script>
+<script src="{{ url_for("static", filename="js/boots.js")}}"></script>
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+                <a class="navbar-brand" href="/">Stock</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse justify-content-end ml-auto" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Products
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Add Products</a>
+                                <a class="dropdown-item" href="#">View Products</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+            <div class="container">
+                    
+                <div class="container">
+                        <div class="center-div" style="width: 50%">
+                            <div  style="border-radius:50% " class="m-3">
+                                    <img src="{{ url_for('static', filename='img/originalpraise (2).jpg') }}" class="avatar" alt="...">
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Name: <b> {{user.name}}</b></li>
+                                <li class="list-group-item">Email: <b>{{user.email}}</b></li>
+                                <li class="list-group-item">Phone Number: <b>{{user.phone}}</b></li>
+                                <li class="list-group-item">Gender: <b>{{user.gender}}</b></li>
+                            </ul>
+                            <div style="margin-top:20px">
+                                    <a href="/logout" class="btn btn-primary">Logout <i class="fa fa-sign-out"></i></a>
+                            </div>
+                        </div>
+                        
+
+
+                </div>
+                
+                
+               
+                   
+                    <script src="{{ url_for('static', filename='js/jquery3.min.js') }}"></script>
+                    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>
+</body>
+</html>

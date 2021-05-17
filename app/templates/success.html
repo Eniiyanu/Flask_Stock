@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link href="{{ url_for("static", filename="css/boot.css")}}"  rel="stylesheet">
+
+<link href="{{ url_for("static", filename="fontawesome/fontawesome/css/all.css")}}"  rel="stylesheet">
+<script src="{{ url_for("static", filename="fontawesome/fontawesome/js/all.js")}}"></script>
+<script src="{{ url_for("static", filename="js/popper.js")}}"></script>
+<script src="{{ url_for("static", filename="js/boots.js")}}"></script>
+</head>
+<body>
+    <div class="text-center"> 
+<p><i class="fa fa-check fa-3x"></i></p>
+<h3 class="text-success">Account Created Successfully</h3>
+    </div>
+    <p>
+        Welcome {{name}},your account was created successfully with your email address "{{email}}".
+    </p>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        
+        /* Full-width input fields */
+         input[type=number] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+        
+        /* Set a style for all buttons */
+        a {
+          
+          color:black;
+          padding: 15px 20px;
+          font-size: 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+        }
+        
+        a:hover {
+          opacity: 0.2;
+          color: green;
+        }
+        
+        /* Extra styles for the cancel button */
+        .cancela {
+          width: auto;
+          padding: 10px 18px;
+          background-color: #f44336;
+        }
+        
+        /* Center the image and position the close button */
+        .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+          position: relative;
+        }
+        
+        img.avatar {
+          width: 40%;
+          border-radius: 50%;
+        }
+        
+        .container {
+          padding: 16px;
+        }
+        
+        span.psw {
+          float: right;
+          padding-top: 16px;
+        }
+        
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+          padding-top: 60px;
+        }
+        
+        /* Modal Content/Box */
+        .modal-content {
+          background-color: #fefefe;
+          margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+          border: 1px solid green;
+          width: 80%; /* Could be more or less, depending on screen size */
+        }
+        
+        /* The Close Button (x) */
+        .close {
+          position: absolute;
+          right: 25px;
+          top: 0;
+          color: #000;
+          font-size: 35px;
+          font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: red;
+          cursor: pointer;
+        }
+        
+        /* Add Zoom Animation */
+        .animate {
+          -webkit-animation: animatezoom 0.6s;
+          animation: animatezoom 0.6s
+        }
+        
+        @-webkit-keyframes animatezoom {
+          from {-webkit-transform: scale(0)} 
+          to {-webkit-transform: scale(1)}
+        }
+          
+        @keyframes animatezoom {
+          from {transform: scale(0)} 
+          to {transform: scale(1)}
+        }
+        
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+          span.psw {
+             display: block;
+             float: none;
+          }
+          .cancelbtn {
+             width: 100%;
+          }
+        }
+        </style>
+
+
+    <p>
+
+        
+       
+           
+
+        </div>
+        <blockquote>
+    <nav>
+            <div class="topnav">
+        <ul class="list-inline">
+            <li> <a href="/home">HOME PAGE</a> </li> 
+            <li> <a href="/logout">LOG OUT</a> </li> 
+        </ul>
+    </nav>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+         <link href="{{ url_for("static", filename="css/styles.css")}}"  rel="stylesheet">
+       
+         <link href="{{ url_for("static", filename="fontawesome/fontawesome/css/all.css")}}"  rel="stylesheet">
+
+</head>
+<body>
+ <!-- Error message block -->
+   
+    <div class="main">
+        <div style="color: red;margin: 5px; text-align: center">
+            {% with messages = get_flashed_messages() %}
+            {% if messages%}
+            {% for message in messages%}
+            <b>{{message}}</b>
+            {% endfor%}
+            {% endif%}
+            {% endwith%}
+            
+              </div>
+        <h1 style="text-align: center"> <i class="fa fa-gift"></i> Stock App</h1>
+        <p class="sign" align="center">LOGIN</p>
+        <form method="POST" action=" http://127.0.0.1:5000/login" class="form1">
+          <input class="un " name="email" type='email' align="center" placeholder="Email">
+          <input class="pass" name="password" type="password" align="center" placeholder="Password">
+          <button class="submit" align="center">SIGN IN</button>
+          <p class="forgot" align="center"><a href="#">Forgot Password?</p>
+            <p class="forgot" align="center"><a href="/sign-up">New Member? SignUp</p>
+              <script src="{{ url_for("static", filename="js/stock.js")}}"></script>
+
+              <script src="{{ url_for("static", filename="fontawesome/fontawesome/js/all.js")}}"></script>
+            </body>
+</html>
+
+
+
+
+
+
+
+
+
